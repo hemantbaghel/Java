@@ -1,0 +1,245 @@
+# java
+import javax.swing.*;
+import java.awt.event.*;
+class HotelRooms implements ActionListener
+{
+	JFrame f1;          //for making a frame
+	JPanel p1;        // adding a pannel
+	JButton b1,b2,b3;     //adding the image button
+	JTextField t1;
+	JLabel l1,l2,l3,l4,l5;
+	ImageIcon im1,im2,im3,im4,im5;
+	HotelRooms()
+	{
+	f1=new JFrame();
+	p1=new JPanel();
+	b1=new JButton("Previous");
+	b2=new JButton("OK");     
+	b3=new JButton("Next");
+	t1=new JTextField();
+	
+	im1=new ImageIcon("d:\\single.jpg");        //path for getting images
+	im2=new ImageIcon("d:\\twinroom.jpg");
+	im3=new ImageIcon("d:\\tripleroom.jpg");
+	im4=new ImageIcon("d:\\kingroom.jpg");
+	im5=new ImageIcon("d:\\duplexroom.jpg");
+
+	l1=new JLabel(im1);
+	l2=new JLabel(im2);
+	l3=new JLabel(im3);
+	l4=new JLabel(im4);
+	l5=new JLabel(im5);
+	
+	f1.add(p1);       //adding the pannel to the frame
+	p1.add(b1);         //adding the button to the pannel.
+	p1.add(b2);
+	p1.add(b3);
+	p1.add(l1);       //adding the jpannel to the jlabel
+	p1.add(l2);
+	p1.add(l3);
+	p1.add(l4);
+	p1.add(l5);
+	p1.add(t1);
+	
+	l1.setBounds(50,50,700,700);          //giving the bounds ot coordinates to the labels
+  l2.setBounds(50,50,700,700);
+	l3.setBounds(50,50,700,700);
+	l4.setBounds(50,50,700,700);
+	l5.setBounds(50,50,700,700);
+	b1.setBounds(50,750,100,50);
+	b2.setBounds(350,750,100,50);
+	b3.setBounds(450,750,100,50);
+	t1.setBounds(200,750,100,50);
+
+
+	p1.setLayout(null);  //setting the layout.
+	f1.setSize(900,900);
+	f1.setVisible(true);
+	f1.setLocationRelativeTo(null);
+	//f1.setBackground(Color.RED);
+	//p1.setBackground(Color.GRAY);
+	b1.addActionListener(this);
+	b2.addActionListener(this);
+	b3.addActionListener(this);
+	
+	l1.setVisible(false);
+	l2.setVisible(false);
+	l3.setVisible(false);
+	l4.setVisible(false);
+	l5.setVisible(false);
+	}
+	public void actionPerformed(ActionEvent ae)
+	{
+		if(ae.getSource()==b1)
+		{
+			
+			String str1=t1.getText().toString();
+			int var=Integer.parseInt(str1);
+			if(str1.equals("1"))
+			{
+				t1.setText(Integer.toString(var));
+
+			}
+			if(str1.equals("2"))
+			{
+
+				
+				l1.setVisible(true);
+				l2.setVisible(false);
+				l3.setVisible(false);
+				l4.setVisible(false);
+				l5.setVisible(false);
+				var=var-1;
+
+				t1.setText(Integer.toString(var));
+					
+			}
+			if(str1.equals("3"))
+			{
+				t1.setText(Integer.toString(var));
+
+				var=var-1;
+				l1.setVisible(false);
+				l2.setVisible(true);
+				l3.setVisible(false);
+				l4.setVisible(false);
+				l5.setVisible(false);
+			}	
+			if(str1.equals("4"))
+			{
+				t1.setText(Integer.toString(var));
+
+				var=var-1;
+				l1.setVisible(false);
+				l2.setVisible(false);
+				l3.setVisible(true);
+				l4.setVisible(false);
+				l5.setVisible(false);
+			}
+			if(str1.equals("5"))
+
+			{
+				t1.setText(Integer.toString(var));
+
+				var=var-1;
+				l1.setVisible(false);
+				l2.setVisible(false);
+				l3.setVisible(false);
+				l4.setVisible(true);
+				l5.setVisible(false);
+			}	
+		}
+		if(ae.getSource()==b2)
+		{
+			String str1=t1.getText();
+			if(str1.equals("1"))
+			{
+				l1.setVisible(true);
+				l2.setVisible(false);
+				l3.setVisible(false);
+				l4.setVisible(false);
+				l5.setVisible(false);
+
+			}
+			if(str1.equals("2"))
+			{
+
+				l1.setVisible(false);
+				l2.setVisible(true);
+				l3.setVisible(false);
+				l4.setVisible(false);
+				l5.setVisible(false);
+					
+			}
+			if(str1.equals("3"))
+			{
+				l1.setVisible(false);
+				l2.setVisible(false);
+				l3.setVisible(true);
+				l4.setVisible(false);
+				l5.setVisible(false);
+			}	
+			if(str1.equals("4"))
+			{
+				l1.setVisible(false);
+				l2.setVisible(false);
+				l3.setVisible(false);
+				l4.setVisible(true);
+				l5.setVisible(false);
+			}
+			if(str1.equals("5"))
+
+			{
+				l1.setVisible(false);
+				l2.setVisible(false);
+				l3.setVisible(false);
+				l4.setVisible(false);
+				l5.setVisible(true);
+			}	
+			
+		}
+		if(ae.getSource()==b3)
+		{
+			
+			String str1=t1.getText().toString();
+			int var=Integer.parseInt(str1);
+			if(str1.equals("1"))
+			{
+				t1.setText(Integer.toString(var));
+				var=var+1;
+				l1.setVisible(false);
+				l2.setVisible(true);
+				l3.setVisible(false);
+				l4.setVisible(false);
+				l5.setVisible(false);
+
+			}
+			if(str1.equals("2"))
+			{
+				t1.setText(Integer.toString(var));
+				var=var+1;
+				l1.setVisible(false);
+				l2.setVisible(false);
+				l3.setVisible(true);
+				l4.setVisible(false);
+				l5.setVisible(false);
+					
+			}
+			if(str1.equals("3"))
+			{
+				t1.setText(Integer.toString(var));
+				var=var+1;
+				l1.setVisible(false);
+				l2.setVisible(false);
+				l3.setVisible(false);
+				l4.setVisible(true);
+				l5.setVisible(false);
+			}	
+			if(str1.equals("4"))
+			{
+				t1.setText(Integer.toString(var));
+				var=var+1;
+				l1.setVisible(false);
+				l2.setVisible(false);
+				l3.setVisible(false);
+				l4.setVisible(false);
+				l5.setVisible(true);
+			}
+			if(str1.equals("5"))
+
+			{
+				JOptionPane.showMessageDialog(f1,"only 5 images are there");
+				
+				t1.setText(Integer.toString(var));
+			}	
+		}	
+			
+	}
+	public static void main(String args[])
+	{
+		HotelRooms obj=new HotelRooms();
+
+	}
+
+
+}
